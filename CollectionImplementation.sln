@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionImplementation", "CollectionImplementation\CollectionImplementation.csproj", "{C132E6E8-5786-4D1C-BD09-5F70A25E562B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionImplementation_Tests", "CollectionImplementation_Tests\CollectionImplementation_Tests.csproj", "{5C38C8DB-07B6-4BC2-88E7-D4D33690EFA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{C132E6E8-5786-4D1C-BD09-5F70A25E562B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C132E6E8-5786-4D1C-BD09-5F70A25E562B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C132E6E8-5786-4D1C-BD09-5F70A25E562B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C38C8DB-07B6-4BC2-88E7-D4D33690EFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C38C8DB-07B6-4BC2-88E7-D4D33690EFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C38C8DB-07B6-4BC2-88E7-D4D33690EFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C38C8DB-07B6-4BC2-88E7-D4D33690EFA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

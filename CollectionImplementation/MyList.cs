@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace CollectionImplementation
 {
@@ -20,8 +21,18 @@ namespace CollectionImplementation
 
         public T this[int index]
         {
-            get => items[index];
-            set => items[index] = value;
+            get
+            {
+                ValidateIndex(index, Count);
+
+                return items[index];
+            }
+            set
+            {
+                ValidateIndex(index, Count);
+
+                items[index] = value;
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -63,7 +74,7 @@ namespace CollectionImplementation
             if (arrayIndex < 0)
                 throw new ArgumentOutOfRangeException(nameof(arrayIndex), "arrayIndex is less than 0.");
 
-            if (array.Length - arrayIndex <= Count)
+            if (array.Length - arrayIndex < Count)
                 throw new ArgumentException("The number of elements in the source ICollection<T> is greater " +
                                             "than the available space from arrayIndex to the end of the " +
                                             "destination array.");
@@ -97,8 +108,7 @@ namespace CollectionImplementation
 
         public void Insert(int index, T item)
         {
-            if (index < 0 || index >= Count)
-                throw new ArgumentOutOfRangeException(nameof(index), "index is not a valid index in the MyList<T>.");
+            ValidateIndex(index, Count);
 
             if (Count == items.Length)
                 items = GetEnlargedArray(items);
@@ -112,8 +122,7 @@ namespace CollectionImplementation
 
         public void RemoveAt(int index)
         {
-            if (index < 0 || index >= Count)
-                throw new ArgumentOutOfRangeException(nameof(index), "index is not a valid index in the MyList<T>.");
+            ValidateIndex(index, Count);
 
             for (var i = index; i < Count; i++)
                 if (i == Count - 1)
@@ -130,6 +139,13 @@ namespace CollectionImplementation
             Array.Copy(sourceArray, newArray, sourceArray.Length);
 
             return newArray;
+        }
+
+        [AssertionMethod]
+        private static void ValidateIndex(int index, int maxCount)
+        {
+            if (index < 0 || index >= maxCount)
+                throw new ArgumentOutOfRangeException(nameof(index), "index is not a valid index in the MyList<T>.");
         }
     }
 }
