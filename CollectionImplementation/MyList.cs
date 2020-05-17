@@ -145,7 +145,8 @@ namespace CollectionImplementation
         private static void ValidateIndex(int index, int maxCount)
         {
             if (index < 0 || index >= maxCount)
-                throw new ArgumentOutOfRangeException(nameof(index), "index is not a valid index in the MyList<T>.");
+                throw new ArgumentOutOfRangeException(nameof(index), "Index was out of range. Must be non-negative " +
+                                                                     "and less than the size of the collection.");
         }
     }
 }
